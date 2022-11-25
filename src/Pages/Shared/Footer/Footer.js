@@ -4,14 +4,14 @@ import logo from "../../../image/i-Tech_logo.png";
 const Footer = () => {
   return (
     <div>
-      <footer className="footer footer-center p-10 bg-gray-500 text-primary-content">
-        <div>
+      <footer className="footer footer-center p-10 bg-gray-300 text-primary-content">
+        <div className="text-gray-700">
           <img src={logo} className="w-28 h-12" alt="" />
           <p className="font-bold">i-tech Resale Products</p>
           <p>Copyright © 2022 - All right reserved | i-tech</p>
         </div>
         <div>
-          <div className="grid grid-flow-col gap-4">
+          <div className="text-gray-700 grid grid-flow-col gap-4">
             <Link>
               <svg
                 xmlns="http://www.w3.org/2000/svg"
