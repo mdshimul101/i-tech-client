@@ -1,17 +1,14 @@
 [
-    {
-        "id":"1",
-        "name":"Asus",
+    {  
+        "categoryName":"Asus",
         "image":"https://i.ibb.co/Q82HSPw/79183.jpg"
     },
-    {
-        "id":"2",
-        "name":"HP",
+    {  
+        "categoryName":"HP",
         "image":"https://i.ibb.co/VvWqGjp/hp-new-logo-0.jpg"
     },
     {
-        "id":"3",
-        "name":"Apple",
+        "categoryName":"Apple",
         "image":"https://i.ibb.co/b1YM93h/apple-windows-theme-24-hd.jpg"
     }
 ]

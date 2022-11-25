@@ -6,9 +6,10 @@ import Category from "../Category/Category/Category";
 const Categories = () => {
   const { data: categories = [] } = useQuery({
     queryKey: ["categories"],
-    queryFn: () => fetch("categories.json").then((res) => res.json()),
+    queryFn: () =>
+      fetch("http://localhost:5000/categories").then((res) => res.json()),
   });
-  console.log(categories);
+  //   console.log(categories);
 
   return (
     <div className="w-11/12 mx-auto py-10">

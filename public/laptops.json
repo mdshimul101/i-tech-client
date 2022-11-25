@@ -1,0 +1,62 @@
+[
+    {
+        "categoryName":"HP",
+        "name":"HP Laptop 15",
+        "image": "https://i.ibb.co/y60SgVK/download-24-68056-1614263913.jpg",
+        "location":"Milton Keynes, England",
+        "resalePrice": 520,
+        "originalPrice": 700,
+        "postedDated": "Nov 11, 2022",
+        "sellersName":"Aniba Juli"
+    },
+    {
+        "categoryName":"HP",
+        "name":"HP Spectre x360 13",
+        "image": "https://i.ibb.co/0tvJDXL/fc8e802333e4342fcc4a37969158a8d5.jpg",
+        "location":"Liverpool, England",
+        "resalePrice": 950,
+        "originalPrice": 1400,
+        "postedDated": "June 15, 2022",
+        "sellersName":"Lanu Antra"
+    },
+    {
+        "categoryName":"Asus",
+        "name":"Asus zenbook 13",
+        "image": "https://i.ibb.co/Tg7DJfc/ASUS-Zen-Book-13-OLED-UM5302-AMD-review-00002.jpg",
+        "location":"North Ayrshire, England",
+        "resalePrice": 680,
+        "originalPrice": 1200,
+        "postedDated": "May 12, 2022",
+        "sellersName":"Harry Bell"
+    },
+    {
+        "categoryName":"Asus",
+        "name":"Asus L410",
+        "image": "https://i.ibb.co/TcD33V8/004uk-Aq49-Ti-Ed-Bw6t311x-TW-3-fit-lim-size-1050x.jpg",
+        "location":"East Riding, England",
+        "resalePrice": 450,
+        "originalPrice": 700,
+        "postedDated": "Dec 25, 2021",
+        "sellersName":"Jessica Meri"
+    },
+    {
+        "categoryName":"Apple",
+        "name":"MacBook Air (M2)",
+        "image": "https://i.ibb.co/ZG9rWbW/Bargain-on-the-Mac-Book-Air-with-M2-drop-more-than.jpg",
+        "location":"Leicester, England",
+        "resalePrice": 2200,
+        "originalPrice": 2500,
+        "postedDated": "Nov 23, 2022",
+        "sellersName":"Miller Dani"
+    },
+    {
+        "categoryName":"Apple",
+        "name":"MacBook M1 Pro",
+        "image": "https://i.ibb.co/WGHk7yk/158839-laptops-review-apple-macbook-pro-14-inch-review-image18-kcmtihtqbf.jpg",
+        "location":"London, England",
+        "resalePrice": 2000,
+        "originalPrice": 2400,
+        "postedDated": "Jan 06, 2022",
+        "sellersName":"Rose alva"
+    }
+]
