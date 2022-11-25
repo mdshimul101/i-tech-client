@@ -7,7 +7,8 @@
         "resalePrice": 520,
         "originalPrice": 700,
         "postedDated": "Nov 11, 2022",
-        "sellersName":"Aniba Juli"
+        "sellersName":"Aniba Juli",
+        "description":"HP 15s-du3811TU Core i3 11th Gen 15.6' FHD Laptop · Processor: Intel Core i3-1125G4 (8M Cache, 2.00 GHz up to 3.70 GHz) · RAM: 8GB DDR4 2666 MHz, Storage: 1TB HDD"
     },
     {
         "categoryName":"HP",
@@ -17,7 +18,8 @@
         "resalePrice": 950,
         "originalPrice": 1400,
         "postedDated": "June 15, 2022",
-        "sellersName":"Lanu Antra"
+        "sellersName":"Lanu Antra",
+        "description":"Notebookcheck tests the HP Spectre x360 13 convertible with Intel Core i7 ULV CPU, 16 GB of RAM and 512 GB PCIe SSD."
     },
     {
         "categoryName":"Asus",
@@ -27,7 +29,8 @@
         "resalePrice": 680,
         "originalPrice": 1200,
         "postedDated": "May 12, 2022",
-        "sellersName":"Harry Bell"
+        "sellersName":"Harry Bell",
+        "description":"Asus ZenBook 13 UX325JA Laptop comes with Intel Core i7-1065G7 Processor (8M Cache, 1.30 GHz up to 3.90 GHz), 16GB LPDDR4X 3200MHz RAM, 512GB PCIe NVMe M.2 SSD"
     },
     {
         "categoryName":"Asus",
@@ -37,7 +40,8 @@
         "resalePrice": 450,
         "originalPrice": 700,
         "postedDated": "Dec 25, 2021",
-        "sellersName":"Jessica Meri"
+        "sellersName":"Jessica Meri",
+        "description":"ASUS L410 MA-DB02 Ultra Thin Laptop, 14” FHD Display, Intel Celeron N4020 Processor, 4GB RAM, 64GB Storage, NumberPad, Windows 10 Home in S Mode, Star Black."
     },
     {
         "categoryName":"Apple",
@@ -47,7 +51,8 @@
         "resalePrice": 2200,
         "originalPrice": 2500,
         "postedDated": "Nov 23, 2022",
-        "sellersName":"Miller Dani"
+        "sellersName":"Miller Dani",
+        "description":"MacBook Air — supercharged by the M2 chip — features all-day battery life and an all-new design with 13.6” Liquid Retina display and 1080p HD camera."
     },
     {
         "categoryName":"Apple",
@@ -57,6 +62,7 @@
         "resalePrice": 2000,
         "originalPrice": 2400,
         "postedDated": "Jan 06, 2022",
-        "sellersName":"Rose alva"
+        "sellersName":"Rose alva",
+        "description":"MacBook Pro with the incredibly powerful M1 Pro or M1 Max chip. Amazing battery life. And a brilliant Liquid Retina XDR display. Buy online now."
     }
 ]
