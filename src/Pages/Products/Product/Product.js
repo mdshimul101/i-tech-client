@@ -1,6 +1,6 @@
 import React from "react";
 
-const Product = ({ product }) => {
+const Product = ({ product, setSingleProduct }) => {
   const {
     categoryName,
     name,
@@ -80,9 +80,13 @@ const Product = ({ product }) => {
               </span>
             </div>
             <div className="card-actions justify-end">
-              <button className="btn bg-sky-500 border-none">
-                Add to Cart
-              </button>
+              <label
+                htmlFor="booking-modal"
+                className="btn bg-sky-500 border-none"
+                onClick={() => setSingleProduct(product)}
+              >
+                Book Now
+              </label>
             </div>
           </div>
         </div>
