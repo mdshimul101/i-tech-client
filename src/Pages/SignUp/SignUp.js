@@ -3,61 +3,82 @@ import { useForm } from "react-hook-form";
 import toast from "react-hot-toast";
 import { Link, useNavigate } from "react-router-dom";
 import { AuthContext } from "../../contexts/AuthProvider";
-const Login = () => {
+
+const SignUp = () => {
   const {
     register,
-    formState: { errors },
     handleSubmit,
+    formState: { errors },
   } = useForm();
-  const { signIn, googleSignIn } = useContext(AuthContext);
-  const [loginError, setLoginError] = useState("");
+  const { createUser, updateUser, googleSignIn } = useContext(AuthContext);
+  const [signUpError, setSignUPError] = useState("");
   const navigate = useNavigate();
 
-  const handleLogin = (data) => {
+  const handleSignUp = (data) => {
     console.log(data);
-    setLoginError("");
-    signIn(data.email, data.password)
+    setSignUPError("");
+    createUser(data.email, data.password)
       .then((result) => {
         const user = result.user;
         console.log(user);
-        navigate("/");
-        toast.success("User login Successfully.");
-        //  setLoginUserEmail(data.email);
+        toast.success("User Created Successfully.");
+        const userInfo = {
+          displayName: data.name,
+        };
+        updateUser(userInfo)
+          .then(() => {
+            // saveUser(data.name, data.email);
+          })
+          .catch((err) => console.log(err));
       })
       .catch((error) => {
-        console.log(error.message);
-        setLoginError(error.message);
+        console.log(error);
+        setSignUPError(error.message);
       });
   };
 
   const handleGoogleSignIn = () => {
-    setLoginError("");
     googleSignIn()
       .then((result) => {
         const user = result.user;
         console.log(user);
+        toast.success("User Created Successfully.");
         navigate("/");
-        toast.success("User login Successfully.");
       })
       .catch((error) => {
         console.log(error);
-        setLoginError(error.message);
       });
   };
 
   return (
     <div className="w-11/12 mx-auto py-14">
       <h2 className="text-sky-500 text-3xl font-semibold py-5 text-center">
-        Login
+        Sign Up
       </h2>
       <div className="mx-auto w-full max-w-sm shadow-2xl bg-base-100">
-        <form onSubmit={handleSubmit(handleLogin)} className="card-body">
+        <form onSubmit={handleSubmit(handleSignUp)} className="card-body">
+          <div className="form-control">
+            <label className="label">
+              <span className="label-text">Name</span>
+            </label>
+            <input
+              type="text"
+              {...register("name", {
+                required: "Name is required",
+              })}
+              placeholder="Name"
+              className="input input-bordered w-full max-w-xs"
+            />
+            {errors.name && (
+              <p className="text-red-500">{errors.name.message}</p>
+            )}
+          </div>
           <div className="form-control">
             <label className="label">
               <span className="label-text">Email</span>
             </label>
             <input
-              type="text"
+              type="email"
               {...register("email", {
                 required: "Email Address is required",
               })}
@@ -65,7 +86,7 @@ const Login = () => {
               className="input input-bordered w-full max-w-xs"
             />
             {errors.email && (
-              <p className="text-red-600">{errors.email?.message}</p>
+              <p className="text-red-500">{errors.email.message}</p>
             )}
           </div>
           <div className="form-control">
@@ -85,8 +106,9 @@ const Login = () => {
               className="input input-bordered w-full max-w-xs"
             />
             {errors.password && (
-              <p className="text-red-600">{errors.password?.message}</p>
+              <p className="text-red-500">{errors.password.message}</p>
             )}
+
             <label className="label">
               <Link to="" className="label-text-alt link link-hover">
                 Forgot password?
@@ -94,17 +116,17 @@ const Login = () => {
             </label>
           </div>
           <div className="form-control mt-6">
-            <button className="btn btn-primary">Login</button>
+            <button className="btn bg-sky-500 border-none">Sign Up</button>
           </div>
           <div>
-            {loginError && <p className="text-red-600 my-2">{loginError}</p>}
+            {signUpError && <p className="text-red-600 my-2">{signUpError}</p>}
           </div>
         </form>
         <div className="py-3 text-center">
           <p>
-            Have any account in i-tech ?{" "}
-            <Link className="text-secondary" to="/signup">
-              Create new Account
+            Already have an account{" "}
+            <Link className="text-secondary" to="/login">
+              Please Login
             </Link>
           </p>
         </div>
@@ -121,4 +143,4 @@ const Login = () => {
   );
 };
 
-export default Login;
+export default SignUp;
