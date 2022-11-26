@@ -8,10 +8,13 @@ const Product = ({ product }) => {
     location,
     originalPrice,
     resalePrice,
-
+    condition,
     postedDated,
     sellersName,
     description,
+    mobile,
+
+    purchaseDate,
   } = product;
   return (
     <div>
@@ -25,32 +28,61 @@ const Product = ({ product }) => {
               <img
                 src={image}
                 alt="Album"
-                className="w-full lg:w-[550px] lg:h-96 border rounded-md"
+                className="w-full lg:w-[550px] lg:h-[420px] border rounded-md"
               />
             </figure>
           </div>
 
           <div className="card-body ">
-            <p className="text-sm">
+            <span>
+              <span className="text-gray-700 font-bold text-base">
+                Seller name
+              </span>{" "}
+              : {sellersName}
+            </span>
+            <h2 className="card-title">{name}</h2>
+            <div>{description}</div>
+            <div className="mt-3">
+              <span className="text-gray-700 font-bold">price : </span>
+              <del>
+                <span className="mr-2">${originalPrice}</span>
+              </del>
+              <span></span>
+              <span>${resalePrice}</span>
+              <br />
+              <span className="text-gray-700 font-bold mr-2">
+                Purchase Date :{" "}
+              </span>
+              <span>{purchaseDate}</span>
+
+              <br />
+              <span className="text-gray-700 font-bold mr-2">Condition : </span>
+              <span>{condition}</span>
+              <span>{purchaseDate}</span>
+            </div>
+
+            <div className="text-sm mt-5">
               <span>
-                <span className="text-gray-700 font-bold">Seller name</span> :{" "}
-                {sellersName}
+                <span className="text-gray-700 font-bold">Post date</span> :{" "}
+                {postedDated}
               </span>
               <br />
               <span>
                 {" "}
-                <span className="text-gray-700 font-bold">
-                  Post date
-                </span> : {postedDated}
+                <span className="text-gray-700 font-bold">Location</span> :{" "}
+                {location}
               </span>
-            </p>
-            <h2 className="card-title">{name}</h2>
-            <p>{description}</p>
-            <div>
-              <p>{}</p>
+              <br />
+              <span>
+                {" "}
+                <span className="text-gray-700 font-bold">Contact</span> :{" "}
+                {mobile}
+              </span>
             </div>
             <div className="card-actions justify-end">
-              <button className="btn btn-primary">Listen</button>
+              <button className="btn bg-sky-500 border-none">
+                Add to Cart
+              </button>
             </div>
           </div>
         </div>
