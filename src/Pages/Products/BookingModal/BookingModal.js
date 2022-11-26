@@ -24,8 +24,24 @@ const BookingModal = ({ singleProduct, setSingleProduct }) => {
       location,
     };
     console.log(booking);
-    toast.success("Submit successfully");
-    setSingleProduct(null);
+
+    fetch("http://localhost:5000/bookings", {
+      method: "POST",
+      headers: {
+        "content-type": "application/json",
+      },
+      body: JSON.stringify(booking),
+    })
+      .then((res) => res.json())
+      .then((data) => {
+        console.log(data);
+        if (data.acknowledged) {
+          setSingleProduct(null);
+          toast.success("Booking successfully");
+        } else {
+          toast.error(data.message);
+        }
+      });
   };
 
   return (
