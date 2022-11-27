@@ -19,11 +19,11 @@ const DashboardLayout = () => {
         </div>
         <div className="drawer-side">
           <label htmlFor="dashboard-drawer" className="drawer-overlay"></label>
-          <ul className="menu p-4 w-80 bg-base-100 text-base-content">
-            <li>
+          <ul className="menu p-4 w-80 bg-base-100 text-base-content lg:mt-16">
+            <li className="text-lg font-semibold text-gray-700">
               <Link to="/dashboard">My Orders</Link>
             </li>
-            <li>
+            <li className="text-lg font-semibold text-gray-700">
               <Link t0="">My wishlist</Link>
             </li>
           </ul>

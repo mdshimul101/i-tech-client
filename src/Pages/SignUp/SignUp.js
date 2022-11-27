@@ -12,7 +12,17 @@ const SignUp = () => {
   } = useForm();
   const { createUser, updateUser, googleSignIn } = useContext(AuthContext);
   const [signUpError, setSignUPError] = useState("");
+  const [createdUserEmail, setCreatedUserEmail] = useState("");
+  const [status, setStatus] = useState("Buyer");
   const navigate = useNavigate();
+
+  const handleStatus = (event) => {
+    event.preventDefault();
+    const form = event.target;
+    const status = form.status.value;
+    console.log(status);
+    setStatus(status);
+  };
 
   const handleSignUp = (data) => {
     console.log(data);
@@ -21,14 +31,14 @@ const SignUp = () => {
       .then((result) => {
         const user = result.user;
         console.log(user);
-        navigate("/");
+
         toast.success("User Created Successfully.");
         const userInfo = {
           displayName: data.name,
         };
         updateUser(userInfo)
           .then(() => {
-            // saveUser(data.name, data.email);
+            saveUser(data.name, data.email, status);
           })
           .catch((err) => console.log(err));
       })
@@ -44,10 +54,27 @@ const SignUp = () => {
         const user = result.user;
         console.log(user);
         toast.success("User Created Successfully.");
-        navigate("/");
+
+        saveUser(user.displayName, user.email, status);
       })
       .catch((error) => {
         console.log(error);
+      });
+  };
+
+  const saveUser = (name, email, status) => {
+    const user = { name, email, status };
+    fetch("http://localhost:5000/users", {
+      method: "POST",
+      headers: {
+        "content-type": "application/json",
+      },
+      body: JSON.stringify(user),
+    })
+      .then((res) => res.json())
+      .then((data) => {
+        navigate("/");
+        setCreatedUserEmail(email);
       });
   };
 
@@ -56,6 +83,23 @@ const SignUp = () => {
       <h2 className="text-sky-500 text-3xl font-semibold py-5 text-center">
         Sign Up
       </h2>
+      <form onSubmit={handleStatus} className="card-body">
+        <select
+          name="status"
+          className="select select-bordered w-full lg:w-1/3 mx-auto"
+        >
+          <option value="Buyer" selected>
+            Buyer
+          </option>
+          <option value="Seller">Seller</option>
+        </select>
+        <br />
+        <input
+          className="btn btn-accent w-full lg:w-1/3 mx-auto bg-sky-500 border-none"
+          type="submit"
+          value="Submit"
+        />
+      </form>
       <div className="mx-auto w-full max-w-sm shadow-2xl bg-base-100">
         <form onSubmit={handleSubmit(handleSignUp)} className="card-body">
           <div className="form-control">

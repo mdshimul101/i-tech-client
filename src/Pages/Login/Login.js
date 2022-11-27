@@ -11,6 +11,7 @@ const Login = () => {
   } = useForm();
   const { signIn, googleSignIn } = useContext(AuthContext);
   const [loginError, setLoginError] = useState("");
+  // const [alreadyRegister, setAlreadyRegister] = useState({});
 
   const location = useLocation();
   const navigate = useNavigate();
@@ -40,6 +41,7 @@ const Login = () => {
       .then((result) => {
         const user = result.user;
         console.log(user);
+
         navigate(from, { replace: true });
         toast.success("User login Successfully.");
       })
@@ -48,6 +50,23 @@ const Login = () => {
         setLoginError(error.message);
       });
   };
+
+  // const { data: allProduct = [] } = useQuery({
+  //   queryKey: ["products"],
+  //   queryFn: () =>
+  //     fetch(`http://localhost:5000/users?displayName=${user.displayName}`).then(
+  //       (res) => res.json()
+  //     ),
+  // });
+  // useEffect(() => {
+  //   fetch(`http://localhost:5000/users?displayName=${user?.displayName}`)
+  //     .then((res) => res.json())
+  //     .then((data) => setAlreadyRegister(data));
+  // }, []);
+  // console.log(alreadyRegister);
+  // if(alreadyRegister){
+  //   toast.error("user should be")
+  // }
 
   return (
     <div className="w-11/12 mx-auto py-14">
