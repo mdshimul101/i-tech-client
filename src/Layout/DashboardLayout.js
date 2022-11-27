@@ -26,10 +26,20 @@ const DashboardLayout = () => {
             {userStatus === "Buyer" && (
               <>
                 <li className="text-lg font-semibold text-gray-700">
-                  <Link to="/dashboard">My Orders</Link>
+                  <Link to="/dashboard/myOrders">My Orders</Link>
                 </li>
                 <li className="text-lg font-semibold text-gray-700">
                   <Link to="">My wishlist</Link>
+                </li>
+              </>
+            )}
+            {userStatus === "Seller" && (
+              <>
+                <li className="text-lg font-semibold text-gray-700">
+                  <Link to="/dashboard/addProduct">Add Product</Link>
+                </li>
+                <li className="text-lg font-semibold text-gray-700">
+                  <Link to="/dashboard/myProducts">My Products</Link>
                 </li>
               </>
             )}

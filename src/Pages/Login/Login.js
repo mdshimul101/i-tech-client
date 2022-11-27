@@ -121,11 +121,6 @@ const Login = () => {
             {errors.password && (
               <p className="text-red-600">{errors.password?.message}</p>
             )}
-            <label className="label">
-              <Link to="" className="label-text-alt link link-hover">
-                Forgot password?
-              </Link>
-            </label>
           </div>
           <div className="form-control mt-6">
             <button className="btn btn-primary">Login</button>
