@@ -6,7 +6,11 @@ const MyOrders = () => {
   const [allBookings, setAllBookings] = useState([]);
   const { user } = useContext(AuthContext);
   axios
-    .get(`http://localhost:5000/bookings?email=${user?.email}`)
+    .get(`http://localhost:5000/bookings?email=${user?.email}`, {
+      headers: {
+        authorization: `bearer ${localStorage.getItem("accessToken")}`,
+      },
+    })
     .then((data) => {
       const bookingsLoaded = data.data;
       setAllBookings(bookingsLoaded);
@@ -14,7 +18,7 @@ const MyOrders = () => {
     });
   return (
     <div className="w-11/12 mx-auto">
-      <h2 className=" text-2xl  lg:w-1/2 mx-auto font-semibold border text-center p-2 my-5 lg:rounded-full border-sky-500">
+      <h2 className=" text-2xl  lg:w-1/2 mx-auto font-semibold border text-center p-1 my-5 lg:rounded-full border-sky-500">
         My all orders :{allBookings.length}
       </h2>
       <div className="overflow-x-auto">

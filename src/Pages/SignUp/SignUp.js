@@ -3,6 +3,7 @@ import { useForm } from "react-hook-form";
 import toast from "react-hot-toast";
 import { Link, useNavigate } from "react-router-dom";
 import { AuthContext } from "../../contexts/AuthProvider";
+import useToken from "../../hooks/useToken";
 
 const SignUp = () => {
   const {
@@ -13,8 +14,14 @@ const SignUp = () => {
   const { createUser, updateUser, googleSignIn } = useContext(AuthContext);
   const [signUpError, setSignUPError] = useState("");
   const [createdUserEmail, setCreatedUserEmail] = useState("");
+  const [token] = useToken(createdUserEmail);
   const [status, setStatus] = useState("Buyer");
+
   const navigate = useNavigate();
+
+  if (token) {
+    navigate("/");
+  }
 
   const handleStatus = (event) => {
     event.preventDefault();
@@ -32,7 +39,6 @@ const SignUp = () => {
         const user = result.user;
         console.log(user);
 
-        toast.success("User Created Successfully.");
         const userInfo = {
           displayName: data.name,
         };
@@ -53,8 +59,6 @@ const SignUp = () => {
       .then((result) => {
         const user = result.user;
         console.log(user);
-        toast.success("User Created Successfully.");
-
         saveUser(user.displayName, user.email, status);
       })
       .catch((error) => {
@@ -73,8 +77,8 @@ const SignUp = () => {
     })
       .then((res) => res.json())
       .then((data) => {
-        navigate("/");
         setCreatedUserEmail(email);
+        toast.success("User Created Successfully.");
       });
   };
 
