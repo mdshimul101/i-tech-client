@@ -62,9 +62,9 @@ const AddProduct = () => {
       .then((data) => {
         console.log(data);
         if (data.acknowledged) {
-          toast("Product Added successfully!!");
+          toast.success("Product Added successfully!!");
           form.reset();
-          navigate("/");
+          navigate("/dashboard/myProducts");
         }
       })
       .catch((er) => console.error(er));

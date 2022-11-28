@@ -38,6 +38,27 @@ const MyProducts = () => {
       .then((data) => {
         console.log(data);
         if (data.acknowledged) {
+          toast.success("Product status update successfully!!");
+          refetch();
+        }
+      })
+      .catch((er) => console.error(er));
+  };
+  const handleAdvertised = (id) => {
+    const advertised = { advertised: "Show" };
+
+    fetch(`http://localhost:5000/products/seller/${id}`, {
+      method: "PATCH",
+      headers: {
+        "content-type": "application/json",
+        authorization: `Bearer ${localStorage.getItem("accessToken")}`,
+      },
+      body: JSON.stringify(advertised),
+    })
+      .then((res) => res.json())
+      .then((data) => {
+        console.log(data);
+        if (data.acknowledged) {
           toast.success("Verify successfully!!");
           refetch();
         }
@@ -108,14 +129,16 @@ const MyProducts = () => {
               </td>
               <td>
                 <button
-                  // onClick={() => handleVerify(user._id)}
+                  onClick={() => handleAdvertised(user._id)}
                   className={
-                    user.verify === "Verify"
+                    user.productStatus === "sold"
                       ? "btn btn-xs  divide-slate-500 btn-disabled"
                       : "btn btn-xs btn-info"
                   }
                 >
-                  {user.verify}
+                  {user.productStatus === "sold"
+                    ? "No Advertised"
+                    : "Show Advertised"}
                 </button>
               </td>
               <td>

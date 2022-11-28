@@ -14,9 +14,11 @@ const AllUsers = () => {
   } = useQuery({
     queryKey: ["users"],
     queryFn: async () => {
-      const res = await fetch(
-        `http://localhost:5000/users?email=${user.email}`
-      );
+      const res = await fetch("http://localhost:5000/users", {
+        headers: {
+          authorization: `Bearer ${localStorage.getItem("accessToken")}`,
+        },
+      });
       const data = await res.json();
       console.log(data);
       return data;

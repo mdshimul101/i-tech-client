@@ -16,6 +16,7 @@ const Product = ({ product, setSingleProduct }) => {
 
     purchaseDate,
   } = product;
+
   return (
     <div>
       <h2 className="text-gray-500 text-2xl font-semibold py-5">
@@ -36,9 +37,9 @@ const Product = ({ product, setSingleProduct }) => {
           <div className="card-body ">
             <span>
               <span className="text-gray-700 font-bold text-base">
-                Seller name
-              </span>{" "}
-              : {sellersName}
+                Seller name :
+              </span>
+              <span className="ml-1">{sellersName}</span>
             </span>
             <h2 className="card-title">{name}</h2>
             <div>{description}</div>
