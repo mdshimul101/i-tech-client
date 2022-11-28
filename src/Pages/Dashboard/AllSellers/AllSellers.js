@@ -93,7 +93,7 @@ const AllSellers = () => {
               <td>{user.status === "Seller" && user.name}</td>
               <td>{user.status === "Seller" && user.email}</td>
               <td>{user.status === "Seller" && user?.status}</td>
-              {user.status !== "Admin" && (
+              {user.status !== "Admin" && user.status !== "Buyer" && (
                 <td>
                   <button
                     onClick={() => handleVerify(user._id)}
@@ -107,7 +107,7 @@ const AllSellers = () => {
                   </button>
                 </td>
               )}
-              {user.status !== "Admin" && (
+              {user.status !== "Admin" && user.status !== "Buyer" && (
                 <td>
                   <button
                     onClick={() => handleDelete(user._id)}
