@@ -78,7 +78,6 @@ const AllSellers = () => {
       <table className="table w-full">
         <thead>
           <tr>
-            <th></th>
             <th>Name</th>
             <th>Email</th>
             <th>Status</th>
@@ -89,7 +88,6 @@ const AllSellers = () => {
         <tbody>
           {allSellers.map((user, i) => (
             <tr key={user?._id}>
-              <th>{user.status === "Seller" && i + 1}</th>
               <td>{user.status === "Seller" && user.name}</td>
               <td>{user.status === "Seller" && user.email}</td>
               <td>{user.status === "Seller" && user?.status}</td>
