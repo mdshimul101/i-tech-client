@@ -5,7 +5,7 @@ const MyWishList = () => {
   const [allBookings, setAllBookings] = useState([]);
   const { user } = useContext(AuthContext);
   axios
-    .get(`http://localhost:5000/bookings?email=${user?.email}`, {
+    .get(`https://i-tech-server.vercel.app/bookings?email=${user?.email}`, {
       headers: {
         authorization: `bearer ${localStorage.getItem("accessToken")}`,
       },

@@ -15,7 +15,7 @@ const MyProducts = () => {
     queryKey: ["/products/seller"],
     queryFn: async () => {
       const res = await fetch(
-        `http://localhost:5000/products/seller?email=${user.email}`
+        `https://i-tech-server.vercel.app/products/seller?email=${user.email}`
       );
       const data = await res.json();
       console.log(data);
@@ -26,7 +26,7 @@ const MyProducts = () => {
   const handleProductStatus = (id) => {
     const productStatus = { productStatus: "sold" };
 
-    fetch(`http://localhost:5000/products/seller/${id}`, {
+    fetch(`https://i-tech-server.vercel.app/products/seller/${id}`, {
       method: "PATCH",
       headers: {
         "content-type": "application/json",
@@ -47,7 +47,7 @@ const MyProducts = () => {
   const handleAdvertised = (id) => {
     const advertised = { advertised: "Show" };
 
-    fetch(`http://localhost:5000/products/seller/${id}`, {
+    fetch(`https://i-tech-server.vercel.app/products/seller/${id}`, {
       method: "PATCH",
       headers: {
         "content-type": "application/json",
@@ -68,7 +68,7 @@ const MyProducts = () => {
 
   const handleDelete = (id) => {
     console.log(id);
-    fetch(`http://localhost:5000/products/seller/${id}`, {
+    fetch(`https://i-tech-server.vercel.app/products/seller/${id}`, {
       method: "DELETE",
       headers: {
         authorization: `Bearer ${localStorage.getItem("accessToken")}`,

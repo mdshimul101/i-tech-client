@@ -14,7 +14,7 @@ const AllUsers = () => {
   } = useQuery({
     queryKey: ["users"],
     queryFn: async () => {
-      const res = await fetch("http://localhost:5000/users", {
+      const res = await fetch("https://i-tech-server.vercel.app/users", {
         headers: {
           authorization: `Bearer ${localStorage.getItem("accessToken")}`,
         },
@@ -28,7 +28,7 @@ const AllUsers = () => {
   const handleVerify = (id) => {
     const verify = { verify: "Verify" };
 
-    fetch(`http://localhost:5000/users/${id}`, {
+    fetch(`https://i-tech-server.vercel.app/users/${id}`, {
       method: "PATCH",
       headers: {
         "content-type": "application/json",
@@ -48,7 +48,7 @@ const AllUsers = () => {
   };
 
   const handleDelete = (id) => {
-    fetch(`http://localhost:5000/users/${id}`, {
+    fetch(`https://i-tech-server.vercel.app/users/${id}`, {
       method: "DELETE",
       headers: {
         authorization: `Bearer ${localStorage.getItem("accessToken")}`,

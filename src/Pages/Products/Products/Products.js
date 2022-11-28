@@ -15,7 +15,7 @@ const Products = () => {
     queryKey: ["products"],
     queryFn: () =>
       fetch(
-        `http://localhost:5000/products?categoryName=${products.categoryName}`
+        `https://i-tech-server.vercel.app/products?categoryName=${products.categoryName}`
       ).then((res) => res.json()),
   });
   // console.log(allProduct);

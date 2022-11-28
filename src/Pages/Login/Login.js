@@ -65,12 +65,12 @@ const Login = () => {
   // const { data: allProduct = [] } = useQuery({
   //   queryKey: ["products"],
   //   queryFn: () =>
-  //     fetch(`http://localhost:5000/users?email=${user.email}`).then(
+  //     fetch(`https://i-tech-server.vercel.app/users?email=${user.email}`).then(
   //       (res) => res.json()
   //     ),
   // });
   // useEffect(() => {
-  //   fetch(`http://localhost:5000/users?displayName=${user?.displayName}`)
+  //   fetch(`https://i-tech-server.vercel.app/users?displayName=${user?.displayName}`)
   //     .then((res) => res.json())
   //     .then((data) => setAlreadyRegister(data));
   // }, []);

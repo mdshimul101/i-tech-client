@@ -16,7 +16,7 @@ const AllSellers = () => {
     queryKey: ["users"],
     queryFn: async () => {
       const res = await fetch(
-        `http://localhost:5000/users/seller?status=Seller`
+        `https://i-tech-server.vercel.app/users/seller?status=Seller`
       );
       const data = await res.json();
       console.log(data);
@@ -27,7 +27,7 @@ const AllSellers = () => {
   const handleVerify = (id) => {
     const verify = { verify: "Verify" };
 
-    fetch(`http://localhost:5000/users/seller/${id}`, {
+    fetch(`https://i-tech-server.vercel.app/users/seller/${id}`, {
       method: "PATCH",
       headers: {
         "content-type": "application/json",
@@ -47,7 +47,7 @@ const AllSellers = () => {
   };
 
   const handleDelete = (id) => {
-    fetch(`http://localhost:5000/users/seller/${id}`, {
+    fetch(`https://i-tech-server.vercel.app/users/seller/${id}`, {
       method: "DELETE",
       headers: {
         authorization: `Bearer ${localStorage.getItem("accessToken")}`,
