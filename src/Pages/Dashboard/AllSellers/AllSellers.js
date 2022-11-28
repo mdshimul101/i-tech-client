@@ -89,7 +89,7 @@ const AllSellers = () => {
         <tbody>
           {allSellers.map((user, i) => (
             <tr key={user?._id}>
-              <th>{i + 1}</th>
+              <th>{user.status === "Seller" && i + 1}</th>
               <td>{user.status === "Seller" && user.name}</td>
               <td>{user.status === "Seller" && user.email}</td>
               <td>{user.status === "Seller" && user?.status}</td>
@@ -103,7 +103,7 @@ const AllSellers = () => {
                         : "btn btn-xs btn-info"
                     }
                   >
-                    {user.verify}
+                    {user.status === "Seller" && user.verify}
                   </button>
                 </td>
               )}
@@ -113,7 +113,7 @@ const AllSellers = () => {
                     onClick={() => handleDelete(user._id)}
                     className="btn btn-xs btn-danger"
                   >
-                    Delete
+                    {user.status === "Seller" && "Delete"}
                   </button>
                 </td>
               )}
