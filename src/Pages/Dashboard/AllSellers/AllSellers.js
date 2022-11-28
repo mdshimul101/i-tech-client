@@ -90,29 +90,33 @@ const AllSellers = () => {
           {allSellers.map((user, i) => (
             <tr key={user?._id}>
               <th>{i + 1}</th>
-              <td>{user.name}</td>
-              <td>{user.email}</td>
-              <td>{user?.status}</td>
-              <td>
-                <button
-                  onClick={() => handleVerify(user._id)}
-                  className={
-                    user.verify === "Verify"
-                      ? "btn btn-xs  divide-slate-500 btn-disabled"
-                      : "btn btn-xs btn-info"
-                  }
-                >
-                  {user.verify}
-                </button>
-              </td>
-              <td>
-                <button
-                  onClick={() => handleDelete(user._id)}
-                  className="btn btn-xs btn-danger"
-                >
-                  Delete
-                </button>
-              </td>
+              <td>{user.status === "Seller" && user.name}</td>
+              <td>{user.status === "Seller" && user.email}</td>
+              <td>{user.status === "Seller" && user?.status}</td>
+              {user.status !== "Admin" && (
+                <td>
+                  <button
+                    onClick={() => handleVerify(user._id)}
+                    className={
+                      user.verify === "Verify"
+                        ? "btn btn-xs  divide-slate-500 btn-disabled"
+                        : "btn btn-xs btn-info"
+                    }
+                  >
+                    {user.verify}
+                  </button>
+                </td>
+              )}
+              {user.status !== "Admin" && (
+                <td>
+                  <button
+                    onClick={() => handleDelete(user._id)}
+                    className="btn btn-xs btn-danger"
+                  >
+                    Delete
+                  </button>
+                </td>
+              )}
             </tr>
           ))}
         </tbody>
