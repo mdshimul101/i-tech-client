@@ -16,6 +16,7 @@ const SignUp = () => {
   const [createdUserEmail, setCreatedUserEmail] = useState("");
   const [token] = useToken(createdUserEmail);
   const [status, setStatus] = useState("Buyer");
+  const [verify, setVerify] = useState("Not Verify");
 
   const navigate = useNavigate();
 
@@ -23,17 +24,19 @@ const SignUp = () => {
     navigate("/");
   }
 
-  const handleStatus = (event) => {
-    event.preventDefault();
-    const form = event.target;
-    const status = form.status.value;
-    console.log(status);
-    setStatus(status);
-  };
+  // const handleStatus = (event) => {
+  //   event.preventDefault();
+  //   const form = event.target;
+  //   const status = form.status.value;
+  //   // console.log(status);
+  //   setStatus(status);
+  // };
 
   const handleSignUp = (data) => {
     console.log(data);
     setSignUPError("");
+    setStatus(data.status);
+    console.log(data.status);
     createUser(data.email, data.password)
       .then((result) => {
         const user = result.user;
@@ -44,7 +47,7 @@ const SignUp = () => {
         };
         updateUser(userInfo)
           .then(() => {
-            saveUser(data.name, data.email, status);
+            saveUser(data.name, data.email, data.status, verify);
           })
           .catch((err) => console.log(err));
       })
@@ -59,15 +62,15 @@ const SignUp = () => {
       .then((result) => {
         const user = result.user;
         console.log(user);
-        saveUser(user.displayName, user.email, status);
+        saveUser(user.displayName, user.email, status, verify);
       })
       .catch((error) => {
         console.log(error);
       });
   };
 
-  const saveUser = (name, email, status) => {
-    const user = { name, email, status };
+  const saveUser = (name, email, status, verify) => {
+    const user = { name, email, status, verify };
     fetch("http://localhost:5000/users", {
       method: "POST",
       headers: {
@@ -87,9 +90,9 @@ const SignUp = () => {
       <h2 className="text-sky-500 text-3xl font-semibold py-5 text-center">
         Sign Up
       </h2>
-      <form onSubmit={handleStatus} className="card-body">
+      {/* <form onSubmit={handleStatus} className="card-body">
         <select
-          name="status"
+          name=""
           className="select select-bordered w-full lg:w-1/3 mx-auto"
         >
           <option value="Buyer" selected>
@@ -103,9 +106,15 @@ const SignUp = () => {
           type="submit"
           value="Submit"
         />
-      </form>
+      </form> */}
       <div className="mx-auto w-full max-w-sm shadow-2xl bg-base-100">
         <form onSubmit={handleSubmit(handleSignUp)} className="card-body">
+          <div className="form-control w-full max-w-xs mt-2 border p-2">
+            <select className="p-2" {...register("status", { required: true })}>
+              <option value="Buyer">Buyer</option>
+              <option value="Seller">Seller</option>
+            </select>
+          </div>
           <div className="form-control">
             <label className="label">
               <span className="label-text">Name</span>

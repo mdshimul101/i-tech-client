@@ -8,6 +8,7 @@ import AddProduct from "../../Pages/Dashboard/AddProduct/AddProduct";
 import MyProducts from "../../Pages/Dashboard/MyProducts/MyProducts";
 import Dashboard from "../../Pages/Dashboard/Dashboard/Dashboard";
 import MyOrders from "../../Pages/Dashboard/MyOrders/MyOrders";
+import MyWishList from "../../Pages/Dashboard/MyWishList/MyWishList";
 import Home from "../../Pages/Home/Home/Home";
 import Login from "../../Pages/Login/Login";
 import NotFound from "../../Pages/NotFound/NotFound";
@@ -53,8 +54,16 @@ const router = createBrowserRouter([
     ),
     children: [
       {
+        path: "/dashboard",
+        element: <Dashboard></Dashboard>,
+      },
+      {
         path: "/dashboard/myOrders",
         element: <MyOrders></MyOrders>,
+      },
+      {
+        path: "/dashboard/myWishList",
+        element: <MyWishList></MyWishList>,
       },
       {
         path: "/dashboard/addProduct",

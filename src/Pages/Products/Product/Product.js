@@ -28,7 +28,7 @@ const Product = ({ product, setSingleProduct }) => {
               <img
                 src={image}
                 alt="Album"
-                className="w-full lg:w-[550px] lg:h-[420px] border rounded-md"
+                className="w-full lg:w-[600px] lg:h-[480px] border rounded-md"
               />
             </figure>
           </div>

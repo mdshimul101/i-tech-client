@@ -29,7 +29,7 @@ const DashboardLayout = () => {
                   <Link to="/dashboard/myOrders">My Orders</Link>
                 </li>
                 <li className="text-lg font-semibold text-gray-700">
-                  <Link to="">My wishlist</Link>
+                  <Link to="/dashboard/myWishList">My wishlist</Link>
                 </li>
               </>
             )}
