@@ -64,11 +64,9 @@ const AllUsers = () => {
       })
       .catch((er) => console.error(er));
   };
-
   if (isLoading) {
     <Loading></Loading>;
   }
-
   return (
     <div className="w-11/12 mx-auto">
       <h2 className=" text-2xl  lg:w-1/2 mx-auto font-semibold border text-center p-1 my-5 lg:rounded-full border-sky-500">
